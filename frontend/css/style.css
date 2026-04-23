@@ -1,0 +1,507 @@
+/* Purpose: Defines the responsive visual design for the student portfolio frontend. */
+
+:root {
+  --bg: #f3f5f8;
+  --bg-gradient-start: #f8fafc;
+  --bg-gradient-end: #eef2f7;
+  --bg-accent: rgba(37, 99, 235, 0.08);
+  --surface: #ffffff;
+  --surface-alt: #eef4ff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #d9e1ec;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  --radius: 18px;
+  --input-bg: #fbfdff;
+  --nav-bg: #f4f7fb;
+  --tab-bg: #e8edf5;
+  --panel-bg: rgba(255, 255, 255, 0.92);
+  --panel-border: rgba(217, 225, 236, 0.8);
+  --card-bg: #fbfdff;
+}
+
+html[data-theme='dark'] {
+  --bg: #08111f;
+  --bg-gradient-start: #0b1627;
+  --bg-gradient-end: #12233c;
+  --bg-accent: rgba(96, 165, 250, 0.14);
+  --surface: #101b2d;
+  --surface-alt: #17263d;
+  --text: #e5eefb;
+  --muted: #9fb0c7;
+  --border: #243851;
+  --primary: #60a5fa;
+  --primary-dark: #bfdbfe;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --shadow: 0 24px 48px rgba(2, 8, 20, 0.45);
+  --input-bg: #0d1728;
+  --nav-bg: #132137;
+  --tab-bg: #16253b;
+  --panel-bg: rgba(16, 27, 45, 0.92);
+  --panel-border: rgba(36, 56, 81, 0.95);
+  --card-bg: #0d1728;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background:
+    radial-gradient(circle at top left, var(--bg-accent), transparent 28%),
+    linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.auth-body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-shell {
+  width: min(1080px, 100%);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.hero-panel,
+.card,
+.sidebar {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+}
+
+.hero-panel {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 560px;
+}
+
+.hero-panel h1,
+.page-header h1,
+.sidebar h2 {
+  margin: 0;
+}
+
+.hero-panel h1 {
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  line-height: 1.05;
+  max-width: 10ch;
+}
+
+.hero-copy {
+  color: var(--muted);
+  max-width: 46ch;
+  font-size: 1.05rem;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.auth-card {
+  padding: 28px;
+}
+
+.tab-row,
+.button-row,
+.inline-form,
+.section-heading,
+.page-header,
+.summary-grid,
+.tag-list,
+.app-shell {
+  display: flex;
+}
+
+.tab-row {
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.tab-button,
+.primary-button,
+.secondary-button,
+.icon-button {
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 14px 16px;
+  background: var(--tab-bg);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.tab-button.active,
+.primary-button {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.tab-button:hover,
+.primary-button:hover,
+.secondary-button:hover,
+.icon-button:hover {
+  transform: translateY(-1px);
+}
+
+.auth-form,
+.project-form {
+  display: grid;
+  gap: 16px;
+}
+
+.auth-form label,
+.project-form label {
+  display: grid;
+  gap: 8px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text);
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.2);
+  border-color: var(--primary);
+}
+
+.primary-button,
+.secondary-button,
+.secondary-link {
+  padding: 13px 18px;
+  font-weight: 600;
+}
+
+.secondary-button,
+.secondary-link,
+.icon-button {
+  background: var(--tab-bg);
+  color: var(--text);
+}
+
+.secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.message {
+  margin-top: 16px;
+  min-height: 24px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+.message.success {
+  color: var(--success);
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 280px;
+  margin: 20px;
+  padding: 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  position: sticky;
+  top: 20px;
+  height: calc(100vh - 40px);
+}
+
+.nav-links {
+  display: grid;
+  gap: 10px;
+  margin: 24px 0;
+}
+
+.nav-link {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--nav-bg);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  background: var(--surface-alt);
+  color: var(--primary-dark);
+}
+
+.content {
+  flex: 1;
+  padding: 20px 20px 28px 0;
+}
+
+.page-header {
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.page-header.compact {
+  margin-bottom: 16px;
+}
+
+.summary-grid {
+  gap: 16px;
+}
+
+.summary-card {
+  min-width: 150px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.summary-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.summary-card strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.75rem;
+}
+
+.card {
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.section-heading {
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.section-heading h3,
+.section-heading p {
+  margin: 0;
+}
+
+.section-heading p {
+  color: var(--muted);
+}
+
+.inline-form {
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.inline-form input {
+  flex: 1;
+}
+
+.tag-list {
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+.tag button {
+  border: 0;
+  background: transparent;
+  color: var(--primary-dark);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.portfolio-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.portfolio-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  background: var(--card-bg);
+}
+
+.portfolio-card p {
+  color: var(--muted);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.project-table th,
+.project-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.project-table th {
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.status-pending {
+  background: rgba(217, 119, 6, 0.15);
+  color: var(--warning);
+}
+
+.status-approved {
+  background: rgba(22, 163, 74, 0.15);
+  color: var(--success);
+}
+
+.status-rejected {
+  background: rgba(220, 38, 38, 0.14);
+  color: var(--danger);
+}
+
+.action-group {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-button.danger {
+  color: var(--danger);
+}
+
+.theme-toggle {
+  width: 100%;
+}
+
+.auth-topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.empty-state {
+  color: var(--muted);
+  padding: 14px 0;
+}
+
+@media (max-width: 900px) {
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-panel {
+    min-height: auto;
+  }
+
+  .app-shell {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 16px;
+  }
+
+  .content {
+    padding: 0 16px 24px;
+  }
+
+  .page-header,
+  .summary-grid,
+  .inline-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

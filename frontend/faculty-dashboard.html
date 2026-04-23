@@ -1,0 +1,82 @@
+<!-- Purpose: Displays the faculty dashboard for reviewing and updating all student project submissions. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Dashboard | Student Portfolio Platform</title>
+    <link rel="stylesheet" href="/frontend/css/style.css" />
+    <style>
+      .faculty-status-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: capitalize;
+      }
+
+      .faculty-status-pending {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .faculty-status-approved {
+        background: #d1fae5;
+        color: #065f46;
+      }
+
+      .faculty-status-rejected {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">Faculty Workspace</p>
+          <h2>Faculty Dashboard</h2>
+        </div>
+        <button class="secondary-button theme-toggle" type="button" data-theme-toggle>Dark Mode</button>
+        <button id="faculty-logout-button" class="secondary-button" type="button">Logout</button>
+      </aside>
+
+      <main class="content">
+        <header class="page-header compact">
+          <div>
+            <p class="eyebrow">Submission Review</p>
+            <h1>Project Verification Queue</h1>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="table-wrapper">
+            <table class="project-table">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Student Email</th>
+                  <th>Project Title</th>
+                  <th>Description</th>
+                  <th>GitHub</th>
+                  <th>File</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="faculty-projects-table"></tbody>
+            </table>
+          </div>
+          <div id="faculty-dashboard-message" class="message"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/faculty.js"></script>
+  </body>
+</html>

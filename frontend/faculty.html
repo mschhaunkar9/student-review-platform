@@ -1,0 +1,56 @@
+<!-- Purpose: Renders the faculty dashboard for reviewing student project submissions. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">Verification Workspace</p>
+          <h2>Faculty Dashboard</h2>
+        </div>
+        <nav class="nav-links">
+          <a id="faculty-panel-link" href="/faculty.html" class="nav-link hidden">Faculty Panel</a>
+        </nav>
+        <button class="secondary-button theme-toggle" type="button" data-theme-toggle>Dark Mode</button>
+        <button id="logout-button" class="secondary-button" type="button">Logout</button>
+      </aside>
+
+      <main class="content">
+        <header class="page-header compact">
+          <div>
+            <p class="eyebrow">Project Review</p>
+            <h1>Student Submissions</h1>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="table-wrapper">
+            <table class="project-table">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Student Email</th>
+                  <th>Project Title</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="faculty-projects-body"></tbody>
+            </table>
+          </div>
+          <div id="faculty-message" class="message"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/faculty.js"></script>
+  </body>
+</html>

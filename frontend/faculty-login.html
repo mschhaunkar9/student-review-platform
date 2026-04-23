@@ -1,0 +1,63 @@
+<!-- Purpose: Provides a standalone faculty login page separate from the student authentication flow. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Login | Student Portfolio Platform</title>
+    <link rel="stylesheet" href="/frontend/css/style.css" />
+  </head>
+  <body class="auth-body">
+    <main class="auth-shell">
+      <section class="hero-panel">
+        <p class="eyebrow">Faculty Review Portal</p>
+        <h1>Review student submissions from a dedicated faculty workspace.</h1>
+        <p class="hero-copy">
+          Sign in with a faculty account to approve or reject project submissions
+          and share review feedback.
+        </p>
+      </section>
+
+      <section class="card auth-card">
+        <div class="auth-topbar">
+          <button class="secondary-button" type="button" data-theme-toggle>Dark Mode</button>
+        </div>
+        <div class="section-heading">
+          <div>
+            <h3>Faculty Login</h3>
+            <p>Use your faculty credentials to continue.</p>
+          </div>
+        </div>
+
+        <form id="faculty-login-form" class="auth-form">
+          <label>
+            <span>Email</span>
+            <input
+              type="email"
+              id="faculty-email"
+              name="email"
+              placeholder="teacher@gmail.com"
+              required
+            />
+          </label>
+          <label>
+            <span>Password</span>
+            <input
+              type="password"
+              id="faculty-password"
+              name="password"
+              placeholder="Enter password"
+              required
+            />
+          </label>
+          <button type="submit" class="primary-button">Login</button>
+        </form>
+
+        <div id="faculty-login-message" class="message"></div>
+      </section>
+    </main>
+
+    <script src="js/theme.js"></script>
+    <script src="js/faculty.js"></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!-- Purpose: Shows the student profile summary, skills, and navigation links. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Student Portfolio Platform</title>
+    <link rel="stylesheet" href="/frontend/css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">Student Workspace</p>
+          <h2>Portfolio Dashboard</h2>
+        </div>
+        <nav class="nav-links">
+          <a href="/dashboard" class="nav-link active">Dashboard</a>
+          <a href="/add-project" class="nav-link">Add Project</a>
+          <a href="/projects" class="nav-link">My Projects</a>
+        </nav>
+        <button class="secondary-button theme-toggle" type="button" data-theme-toggle>Dark Mode</button>
+        <button id="logout-button" class="secondary-button">Logout</button>
+      </aside>
+
+      <main class="content">
+        <header class="page-header">
+          <div>
+            <p class="eyebrow">Welcome back</p>
+            <h1 id="student-name">Loading...</h1>
+          </div>
+          <div class="summary-grid">
+            <article class="summary-card">
+              <span>Total Projects</span>
+              <strong id="total-projects">0</strong>
+            </article>
+            <article class="summary-card">
+              <span>Approved Items</span>
+              <strong id="approved-projects">0</strong>
+            </article>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="section-heading">
+            <div>
+              <h3>Skills</h3>
+              <p>Maintain a clean set of portfolio-ready skill tags.</p>
+            </div>
+          </div>
+
+          <form id="skill-form" class="inline-form">
+            <input
+              type="text"
+              id="skill-input"
+              placeholder="Add a skill and press Enter"
+              maxlength="40"
+            />
+            <button type="submit" class="primary-button">Add Skill</button>
+          </form>
+
+          <div id="skills-container" class="tag-list"></div>
+          <div id="dashboard-message" class="message"></div>
+        </section>
+
+        <section class="card">
+          <div class="section-heading">
+            <div>
+              <h3>Approved Portfolio</h3>
+              <p>Only approved submissions appear in your visible portfolio.</p>
+            </div>
+          </div>
+          <div id="portfolio-list" class="portfolio-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

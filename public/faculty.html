@@ -1,0 +1,50 @@
+<!-- Purpose: Renders the faculty dashboard for reviewing student project submissions. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="/frontend/css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">Verification Workspace</p>
+          <h2>Faculty Dashboard</h2>
+        </div>
+        <button id="logout-button" class="secondary-button" type="button">Logout</button>
+      </aside>
+
+      <main class="content">
+        <header class="page-header compact">
+          <div>
+            <p class="eyebrow">Project Review</p>
+            <h1>Student Submissions</h1>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="table-wrapper">
+            <table class="project-table">
+              <thead>
+                <tr>
+                  <th>Student Name</th>
+                  <th>Student Email</th>
+                  <th>Project Title</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="faculty-projects-body"></tbody>
+            </table>
+          </div>
+          <div id="faculty-message" class="message"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="faculty.js"></script>
+  </body>
+</html>

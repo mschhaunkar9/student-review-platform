@@ -1,0 +1,59 @@
+<!-- Purpose: Displays all student projects with edit/delete actions and status badges. -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Student Portfolio Platform</title>
+    <link rel="stylesheet" href="/frontend/css/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">Student Workspace</p>
+          <h2>Project Tracker</h2>
+        </div>
+        <nav class="nav-links">
+          <a href="/dashboard" class="nav-link">Dashboard</a>
+          <a href="/add-project" class="nav-link">Add Project</a>
+          <a href="/projects" class="nav-link active">My Projects</a>
+        </nav>
+        <button class="secondary-button theme-toggle" type="button" data-theme-toggle>Dark Mode</button>
+        <button id="logout-button" class="secondary-button">Logout</button>
+      </aside>
+
+      <main class="content">
+        <header class="page-header compact">
+          <div>
+            <p class="eyebrow">Status Overview</p>
+            <h1>My Projects</h1>
+          </div>
+        </header>
+
+        <section class="card">
+          <div class="table-wrapper">
+            <table class="project-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>GitHub</th>
+                  <th>Certificate</th>
+                  <th>Status</th>
+                  <th>Feedback</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="projects-table-body"></tbody>
+            </table>
+          </div>
+          <div id="projects-message" class="message"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/theme.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/projects.js"></script>
+  </body>
+</html>
