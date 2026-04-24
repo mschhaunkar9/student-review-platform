@@ -705,9 +705,30 @@ textarea::placeholder {
   font-weight: 700;
 }
 
+.text-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.text-button:hover {
+  text-decoration: underline;
+}
+
 .text-link-subtle {
   font-size: 0.92rem;
   font-weight: 600;
+}
+
+.auth-switch {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  text-align: center;
 }
 
 .message {

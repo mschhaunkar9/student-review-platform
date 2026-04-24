@@ -14,7 +14,7 @@
 
   const loginForm = document.getElementById('login-form');
   const registerForm = document.getElementById('register-form');
-  const tabButtons = document.querySelectorAll('.tab-button');
+  const switchButtons = document.querySelectorAll('[data-auth-switch]');
   const messageBox = document.getElementById('auth-message');
   const title = document.getElementById('auth-title');
   const subtitle = document.getElementById('auth-subtitle');
@@ -24,6 +24,10 @@
     login: {
       title: 'Student Portal',
       subtitle: 'Use your student credentials to continue.'
+    },
+    register: {
+      title: 'Student Portal',
+      subtitle: 'Create your account using your name, email, and password.'
     }
   };
 
@@ -33,10 +37,6 @@
   };
 
   const setActiveTab = (tab) => {
-    tabButtons.forEach((button) => {
-      button.classList.toggle('active', button.dataset.tab === tab);
-    });
-
     loginForm.classList.toggle('hidden', tab !== 'login');
     if (registerForm) {
       registerForm.classList.toggle('hidden', tab !== 'register');
@@ -48,6 +48,22 @@
       subtitle.textContent = tabContent[tab].subtitle;
     }
     showMessage('');
+  };
+
+  const validateRegistration = (payload) => {
+    if (!payload.name || payload.name.trim().length < 2) {
+      return 'Name must be at least 2 characters long.';
+    }
+
+    if (!payload.email) {
+      return 'Email is required.';
+    }
+
+    if (!payload.password || payload.password.length < 6) {
+      return 'Password must be at least 6 characters long.';
+    }
+
+    return '';
   };
 
   const togglePasswordVisibility = (button) => {
@@ -64,8 +80,8 @@
     button.setAttribute('aria-label', shouldShow ? 'Hide password' : 'Show password');
   };
 
-  tabButtons.forEach((button) => {
-    button.addEventListener('click', () => setActiveTab(button.dataset.tab));
+  switchButtons.forEach((button) => {
+    button.addEventListener('click', () => setActiveTab(button.dataset.authSwitch));
   });
 
   passwordToggles.forEach((button) => {
@@ -94,6 +110,12 @@
 
       const formData = new FormData(registerForm);
       const payload = Object.fromEntries(formData.entries());
+      const validationMessage = validateRegistration(payload);
+
+      if (validationMessage) {
+        showMessage(validationMessage, 'error');
+        return;
+      }
 
       try {
         const response = await fetchAPI('/api/auth/register', 'POST', payload);
@@ -110,7 +132,5 @@
     redirectByRole(getToken());
   }
 
-  if (tabButtons.length) {
-    setActiveTab('login');
-  }
+  setActiveTab('login');
 })();
